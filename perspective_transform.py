@@ -8,7 +8,10 @@ import tkinter.filedialog
 def order_points(pts):
 	rect = np.zeros((4,2), dtype="float32")
 	# top-left top-right bottom-right bottom-left
-
+	for i in range(len(pts)):
+		rect[i] = pts[i] 
+		
+	"""
 	s = pts.sum(axis=1)
 	rect[0] = pts[np.argmin(s)]		#top-left
 	rect[2] = pts[np.argmax(s)] 	#bottom-right
@@ -16,13 +19,13 @@ def order_points(pts):
 	diff = np.diff(pts, axis=1)
 	rect[1] = pts[np.argmin(diff)]	#top-right
 	rect[3] = pts[np.argmax(diff)]	#bottom-left
-
+    """
 	return rect
 
 def perspective_transformation(img, pts):
 	# get ordered points and unpack them
 	rect = order_points(pts)
-	(tl, tr, br, bl)=rect
+	(tl, tr, bl, br)=rect
 
 	# compute width of new image
 	# distance between topmost two points
@@ -91,7 +94,7 @@ cv2.line(image, pts[-1], pts[0], (0,0,0), 1)
 cv2.imshow('Draw',image)
 cv2.destroyAllWindows()
 
-print (pts)
+#print (pts)
 
 pts = np.float32(pts)
 warped = perspective_transformation(image,pts)
