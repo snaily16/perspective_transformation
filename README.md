@@ -19,4 +19,4 @@ Use ``` pip ``` to install any missing dependencies.
 4. Press any key to stop and get the output
 
 ## Demo
-![Demo](https://github.com/snaily16/perspective_transformation/blob/master/perspective.gif)
+![Demo](https://github.com/snaily16/perspective_transformation/blob/master/demo.mp4)
